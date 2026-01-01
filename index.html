@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aren CTF Blog</title>
+  <link rel="stylesheet" href="assets/css/glitch.css">
+</head>
+<body class="glitch-lines">
+  <!-- Glitch slices -->
+  <div class="glitch-slice"></div>
+  <div class="glitch-slice"></div>
+  <div class="glitch-slice"></div>
+
+  <h1>Welcome to Aren CTF Blog</h1>
+  <p>Web & OSINT writeups</p>
+
+  <h2>Posts</h2>
+  <ul>
+    {% for post in site.posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
