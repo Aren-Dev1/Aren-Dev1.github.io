@@ -1,0 +1,13 @@
+title: "Aren CTF Blog"
+description: "CTF writeups: Web & OSINT"
+baseurl: ""
+url: "https://Aren-Dev1.github.io"
+github_username: "Aren-Dev1"
+
+theme: minima
+paginate: 5
+
+# Categories used in blog
+categories:
+  - web
+  - osint
