@@ -1,0 +1,21 @@
+---
+layout: default
+title: Web CTF Writeups
+---
+
+<h1>🌐 Web CTF Writeups</h1>
+<p style="color: #aaa; margin-bottom: 2rem;">SQL Injection, XSS, RCE, and more web exploitation challenges</p>
+
+<div class="post-list">
+  {% for post in site.categories.web %}
+    <div class="post-card">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+      {% if post.excerpt %}
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% endif %}
+    </div>
+  {% else %}
+    <p style="color: #888;">No Web CTF writeups yet. Stay tuned!</p>
+  {% endfor %}
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/glitch.css' | relative_url }}">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="glitch-lines">
+  <!-- Glitch slices -->
+  <div class="glitch-slice"></div>
+  <div class="glitch-slice"></div>
+  <div class="glitch-slice"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+      <li><a href="{{ '/web.html' | relative_url }}" {% if page.url == '/web.html' %}class="active"{% endif %}>Web CTF</a></li>
+      <li><a href="{{ '/osint.html' | relative_url }}" {% if page.url == '/osint.html' %}class="active"{% endif %}>OSINT CTF</a></li>
+      <li><a href="{{ '/about.html' | relative_url }}" {% if page.url == '/about.html' %}class="active"{% endif %}>About</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    {{ content }}
+  </div>
+</body>
+</html>

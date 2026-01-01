@@ -1,13 +1,49 @@
+# Site settings
 title: "Aren CTF Blog"
-description: "CTF writeups: Web & OSINT"
+description: "CTF writeups: Web Exploitation & OSINT | Security challenges, vulnerabilities, and techniques"
+author: "Aren"
 baseurl: ""
 url: "https://Aren-Dev1.github.io"
 github_username: "Aren-Dev1"
+twitter_username: "Aren_CTF"
+email: "aren.dev@example.com"
 
+# Build settings
 theme: minima
-paginate: 5
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
 
-# Categories used in blog
-categories:
-  - web
-  - osint
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: "_posts/web"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "web"
+  - scope:
+      path: "_posts/osint"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "osint"
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - my-app

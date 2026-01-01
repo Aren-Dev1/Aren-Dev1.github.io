@@ -1,0 +1,21 @@
+---
+layout: default
+title: OSINT CTF Writeups
+---
+
+<h1>🔍 OSINT CTF Writeups</h1>
+<p style="color: #aaa; margin-bottom: 2rem;">Open-source intelligence, reconnaissance, and information gathering challenges</p>
+
+<div class="post-list">
+  {% for post in site.categories.osint %}
+    <div class="post-card">
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+      {% if post.excerpt %}
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+      {% endif %}
+    </div>
+  {% else %}
+    <p style="color: #888;">No OSINT CTF writeups yet. Stay tuned!</p>
+  {% endfor %}
+</div>

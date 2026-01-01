@@ -1,24 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Aren CTF Blog</title>
-  <link rel="stylesheet" href="assets/css/glitch.css">
-</head>
-<body class="glitch-lines">
-  <!-- Glitch slices -->
-  <div class="glitch-slice"></div>
-  <div class="glitch-slice"></div>
-  <div class="glitch-slice"></div>
+---
+layout: default
+---
 
-  <h1>Welcome to Aren CTF Blog</h1>
-  <p>Web & OSINT writeups</p>
+<h1>🚀 Aren CTF Blog</h1>
+<p style="color: #aaa; font-size: 1.2rem; margin-bottom: 3rem;">Cybersecurity writeups | Web Exploitation & OSINT</p>
 
-  <h2>Posts</h2>
-  <ul>
-    {% for post in site.posts %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}</li>
-    {% endfor %}
-  </ul>
-</body>
-</html>
+<!-- Web CTF Section -->
+<div class="post-section">
+  <h2>🌐 Web CTF Writeups</h2>
+  <div class="post-list">
+    {% assign web_posts = site.categories.web | slice: 0, 3 %}
+    {% if web_posts.size > 0 %}
+      {% for post in web_posts %}
+        <div class="post-card">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+          {% if post.excerpt %}
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <p style="color: #888;">No Web CTF writeups yet. Coming soon!</p>
+    {% endif %}
+  </div>
+  <p style="margin-top: 1.5rem;"><a href="{{ '/web.html' | relative_url }}" style="color: var(--neon-pink);">View all Web CTF posts →</a></p>
+</div>
+
+<!-- OSINT CTF Section -->
+<div class="post-section">
+  <h2>🔍 OSINT CTF Writeups</h2>
+  <div class="post-list">
+    {% assign osint_posts = site.categories.osint | slice: 0, 3 %}
+    {% if osint_posts.size > 0 %}
+      {% for post in osint_posts %}
+        <div class="post-card">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="post-date">{{ post.date | date: "%B %d, %Y" }}</p>
+          {% if post.excerpt %}
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <p style="color: #888;">No OSINT CTF writeups yet. Coming soon!</p>
+    {% endif %}
+  </div>
+  <p style="margin-top: 1.5rem;"><a href="{{ '/osint.html' | relative_url }}" style="color: var(--neon-pink);">View all OSINT CTF posts →</a></p>
+</div>
